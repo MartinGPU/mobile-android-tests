@@ -13,12 +13,12 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
-@Feature("Search java by name")
-public class SearchTests extends TestBase {
+@Feature("Search text")
+public class SearchTest extends TestBase {
 
     @DisplayName("Searching test")
     @AllureId("22983")
-    @Owner(value="Marat")
+    @Owner(value = "Marat")
     @Test
     void successfulSearchTest() {
         step("Type search", () -> {
