@@ -29,10 +29,11 @@ public class TestBase {
 
     @AfterEach
     void afterEach() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
         String sessionId = Selenide.sessionId().toString();
+//        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
         closeWebDriver();
+        Attach.addVideo(sessionId);
     }
 
 }
