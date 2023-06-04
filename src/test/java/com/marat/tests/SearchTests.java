@@ -16,7 +16,7 @@ import static io.qameta.allure.Allure.step;
 @Feature("Search java by name")
 public class SearchTests extends TestBase {
 
-    @DisplayName("Get domain")
+    @DisplayName("Searching test")
     @AllureId("22983")
     @Owner(value="Marat")
     @Test
