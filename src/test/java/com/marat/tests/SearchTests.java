@@ -1,5 +1,9 @@
 package com.marat.tests;
 
+import io.qameta.allure.AllureId;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -9,8 +13,12 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
+@Feature("Search java by name")
 public class SearchTests extends TestBase {
 
+    @DisplayName("Get domain")
+    @AllureId("")
+    @Owner(value="Marat")
     @Test
     void successfulSearchTest() {
         step("Type search", () -> {
