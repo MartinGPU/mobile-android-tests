@@ -9,14 +9,25 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.aeonbits.owner.ConfigFactory;
+import com.marat.config.CredentialsConfig;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
 
+    public static CredentialsConfig credentials = ConfigFactory.create(CredentialsConfig.class, System.getProperties());
+    public static String
+            userName,
+            password,
+            remoteUrl;
+
     @BeforeAll
     static void beforeAll() {
+        userName = credentials.userName();
+        password = credentials.password();
+        remoteUrl=credentials.remoteUrl();
         Configuration.browser = BrowserstackMobileDriver.class.getName();
         Configuration.browserSize = null;
     }

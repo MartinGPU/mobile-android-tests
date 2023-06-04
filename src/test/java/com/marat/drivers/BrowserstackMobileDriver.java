@@ -11,6 +11,8 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static com.marat.tests.TestBase.*;
+
 public class BrowserstackMobileDriver implements WebDriverProvider {
 
     @Nonnull
@@ -22,8 +24,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.merge(capabilities);
 
         // Set your access credentials
-        mutableCapabilities.setCapability("browserstack.user", "erast_FU6ESD");
-        mutableCapabilities.setCapability("browserstack.key", "PyyYLrcfMBB5sAi4ymWX");
+        mutableCapabilities.setCapability("browserstack.user", userName);
+        mutableCapabilities.setCapability("browserstack.key", password);
 
         // Set URL of the application under test
         mutableCapabilities.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
@@ -42,7 +44,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         // and desired mutableCapabilities defined above
         try {
             return new RemoteWebDriver(
-                    new URL("http://hub.browserstack.com/wd/hub"), mutableCapabilities);
+                    new URL(remoteUrl), mutableCapabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
